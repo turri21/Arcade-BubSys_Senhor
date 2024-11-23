@@ -1,0 +1,21 @@
+set_global_assignment -name SDC_FILE BubSys.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE BubSys.sv
+
+set_global_assignment -name QIP_FILE rtl/pll.qip
+set_global_assignment -name VERILOG_FILE rtl/BubSys_emu.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_top.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_cpu.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_sound.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_bbd8/BubSys_bbd8.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_components/BubSys_PROM.v
+set_global_assignment -name VERILOG_FILE rtl/BubSys_components/BubSys_SRAM.v
+set_global_assignment -name VERILOG_FILE rtl/ipcores/k5289.v
+set_global_assignment -name VERILOG_FILE rtl/ipcores/K005297/K005297.v
+set_global_assignment -name QIP_FILE rtl/GX400_video/GX400_video.qip
+set_global_assignment -name QIP_FILE rtl/ipcores/fx68k/fx68k.qip
+set_global_assignment -name QIP_FILE rtl/ipcores/t80/T80.qip
+set_global_assignment -name QIP_FILE rtl/ipcores/jtframe_sdram/jtframe_sdram64.qip
+set_global_assignment -name QIP_FILE rtl/ipcores/jt49/jt49.qip
+set_global_assignment -name QIP_FILE rtl/ipcores/vlm5030_gl/vlm5030_gl.qip
+
+
