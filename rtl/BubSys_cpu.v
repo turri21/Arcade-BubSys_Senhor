@@ -275,7 +275,7 @@ wire            bmc_irq_n;
 K005297 u_K005297 (
     .i_MCLK                     (bclk                       ),
 
-    .i_CLK4M_PCEN_n             (~bmcclk_pcen               ),
+    .i_CLK4M_PCEN_n             (~bmcclk_pcen & ~bmc_rst    ),
                          
     .i_MRST_n                   (~bmc_rst                   ),
                          

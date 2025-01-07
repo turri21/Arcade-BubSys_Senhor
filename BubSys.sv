@@ -309,16 +309,16 @@ wire            hblank, vblank;
 wire    [4:0]   video_r_5bpp, video_g_5bpp, video_b_5bpp; //need to use color conversion LUT
 wire            vcen;
 
-reg     [3:0]   por_delay;
+reg     [5:0]   por_delay;
 reg             soft_reset;
 always @(posedge CLK72M) begin
-    if(RESET | status[0] | buttons[1]) begin
-        por_delay <= 4'd0;
+    if(status[0] || buttons[1]) begin
+        por_delay <= 6'd0;
         soft_reset <= 1'b1;
     end
     else begin
-        por_delay <= por_delay == 4'd15 ? 4'd15 : por_delay + 4'd1;
-        soft_reset <= soft_reset != 4'd15;
+        por_delay <= por_delay == 6'd63 ? 6'd63 : por_delay + 6'd1;
+        soft_reset <= por_delay != 6'd63;
     end
 end
 
@@ -330,7 +330,7 @@ BubSys_emu gameboard_top (
     .i_EMU_CLK57M               (CLK57M                     ),
     .i_EMU_CLK48M               (CLK48M                     ),
     .i_EMU_INITRST              (RESET                      ),
-    .i_EMU_SOFTRST              (RESET | status[0] | buttons[1]         ),
+    .i_EMU_SOFTRST              (RESET | status[0] | buttons[1] | soft_reset),
 
     .o_HBLANK                   (hblank                     ),
     .o_VBLANK                   (vblank                     ),
